@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#1a0a17" />
+  <title>Novas páginas 💿</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💿%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Figtree:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #1a0a17;
+      --panel: #2a0f23;
+      --panel-2: #35102a;
+      --line: rgba(232, 201, 143, .18);
+      --gold: #e8c98f;
+      --ruby: #d0426a;
+      --ruby-dark: #a82a4f;
+      --blush: #f7d9e0;
+      --muted: #b497a6;
+      --sans: "Figtree", system-ui, sans-serif;
+      --serif: "Instrument Serif", Georgia, serif;
+      --hand: "Caveat", cursive;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html { background: var(--bg); }
+    body {
+      margin: 0; min-height: 100dvh;
+      font-family: var(--sans); font-size: 16px; line-height: 1.45;
+      color: var(--blush);
+      background: radial-gradient(120% 60% at 50% -10%, #4a1639 0%, transparent 60%), var(--bg);
+      padding: max(20px, env(safe-area-inset-top)) 18px max(40px, env(safe-area-inset-bottom));
+    }
+    main { width: min(100%, 520px); margin: 0 auto; }
+    [hidden] { display: none !important; }
+
+    h1 { font-family: var(--serif); font-weight: 400; font-size: 2.3rem; line-height: 1.05; margin: .4em 0 .15em; }
+    .hand { font-family: var(--hand); color: var(--gold); font-size: 1.5rem; margin: 0; }
+    .sub { color: var(--muted); margin: 0 0 1.4em; }
+    h2 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; margin: 1.8em 0 .5em; }
+
+    label { display: block; font-size: .92rem; color: var(--muted); margin-bottom: .35em; }
+    input[type="text"], input[type="password"], textarea {
+      width: 100%; font: inherit; color: var(--blush);
+      background: rgba(0, 0, 0, .28); border: 1px solid var(--line); border-radius: 12px;
+      padding: .75em .9em; outline: none;
+    }
+    textarea { min-height: 7.5em; resize: vertical; line-height: 1.4; }
+    input:focus-visible, textarea:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    ::placeholder { color: #86677a; }
+
+    .btn {
+      font: inherit; font-weight: 600; cursor: pointer; border: 0; border-radius: 999px;
+      padding: .85em 1.4em; color: #fff; background: var(--ruby);
+      transition: transform .12s ease, background .2s ease;
+    }
+    .btn:active { transform: scale(.97); background: var(--ruby-dark); }
+    .btn[disabled] { opacity: .5; pointer-events: none; }
+    .btn--ghost { background: transparent; color: var(--gold); border: 1px solid var(--line); }
+    .btn--block { display: block; width: 100%; }
+    .btn--small { padding: .5em 1em; font-size: .9rem; }
+
+    .pick {
+      display: grid; place-items: center; gap: .3em; text-align: center;
+      border: 1.5px dashed rgba(232, 201, 143, .4); border-radius: 18px;
+      padding: 2em 1em; cursor: pointer; background: rgba(255, 255, 255, .03);
+    }
+    .pick b { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; }
+    .pick span { color: var(--muted); font-size: .92rem; }
+    .pick input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+
+    .cards { display: grid; gap: 14px; margin-top: 16px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 12px; }
+    .card__top { display: flex; gap: 12px; align-items: center; }
+    .card__img { width: 84px; height: 84px; border-radius: 10px; object-fit: cover; flex: none; background: #000; }
+    .card__info { flex: 1; min-width: 0; }
+    .card__info p { margin: 0; }
+    .card__info .muted { color: var(--muted); font-size: .88rem; }
+    .x { background: none; border: 0; color: var(--muted); font-size: 1.6rem; line-height: 1; padding: .2em .35em; cursor: pointer; }
+
+    .switch { display: flex; align-items: center; gap: .7em; margin-top: 12px; cursor: pointer; color: var(--blush); font-size: 1rem; }
+    .switch input { position: absolute; opacity: 0; }
+    .switch i { width: 46px; height: 27px; border-radius: 99px; background: rgba(255, 255, 255, .14); position: relative; flex: none; transition: background .2s; }
+    .switch i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 21px; height: 21px; border-radius: 50%; background: #fff; transition: transform .2s; }
+    .switch input:checked + i { background: var(--ruby); }
+    .switch input:checked + i::after { transform: translateX(19px); }
+    .switch input:focus-visible + i { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    .texto { display: grid; gap: 10px; margin-top: 12px; }
+    .texto .row { display: flex; gap: 8px; }
+    .texto .row input { flex: 1; min-width: 0; }
+    .aviso { font-size: .88rem; color: var(--gold); margin: 0; }
+
+    .publish { position: sticky; bottom: max(12px, env(safe-area-inset-bottom)); margin-top: 18px; }
+    .publish .btn { box-shadow: 0 10px 30px -8px rgba(0, 0, 0, .8); padding: 1em; font-size: 1.05rem; }
+
+    .list { display: grid; gap: 10px; }
+    .item { display: flex; gap: 10px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 8px; }
+    .item img { width: 56px; height: 56px; border-radius: 8px; object-fit: cover; flex: none; }
+    .item__txt { flex: 1; min-width: 0; font-size: .92rem; }
+    .item__txt b { display: block; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .item__txt span { color: var(--muted); font-size: .85rem; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .item button { background: rgba(255, 255, 255, .07); border: 0; color: var(--blush); border-radius: 10px; width: 38px; height: 38px; font-size: 1.05rem; cursor: pointer; }
+    .item button[disabled] { opacity: .25; }
+    .empty { color: var(--muted); padding: 1em 0; }
+
+    .toast {
+      position: fixed; left: 50%; bottom: max(84px, calc(env(safe-area-inset-bottom) + 76px)); transform: translate(-50%, 20px);
+      max-width: min(92vw, 460px); padding: .8em 1.2em; border-radius: 14px;
+      background: #fff4f1; color: #3a1230; font-weight: 500; text-align: center;
+      opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 10;
+    }
+    .toast.on { opacity: 1; transform: translate(-50%, 0); }
+    .toast.err { background: #ffd9d9; color: #7a1020; }
+
+    a { color: var(--gold); }
+    .topbar { display: flex; justify-content: space-between; align-items: center; }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+<main>
+
+  <!-- entrar -->
+  <section id="login" hidden>
+    <p class="hand">só pra mim</p>
+    <h1>Novas páginas<br>do álbum</h1>
+    <p class="sub">Digite a senha para continuar.</p>
+    <label for="senha">Senha</label>
+    <input id="senha" type="password" autocomplete="current-password" />
+    <p class="aviso" id="loginErro" hidden></p>
+    <p style="margin-top:14px"><button class="btn btn--block" id="entrar">Entrar</button></p>
+  </section>
+
+  <!-- painel -->
+  <section id="painel" hidden>
+    <div class="topbar">
+      <p class="hand">novas páginas</p>
+      <button class="btn btn--ghost btn--small" id="sair">Sair</button>
+    </div>
+    <h1>Adicionar ao álbum</h1>
+    <p class="sub">Escolha as fotos. Cada uma vira uma página nova, antes da carta.</p>
+
+    <label class="pick" for="arquivos">
+      <b>Escolher fotos</b>
+      <span>da galeria do celular, pode marcar várias</span>
+      <input id="arquivos" type="file" accept="image/*" multiple />
+    </label>
+
+    <div class="cards" id="cards"></div>
+
+    <div class="publish" id="publish" hidden>
+      <button class="btn btn--block" id="publicar">Publicar no álbum</button>
+    </div>
+
+    <h2>Páginas que já adicionei</h2>
+    <div class="list" id="lista"></div>
+    <p class="empty" id="vazio" hidden>Ainda não tem nenhuma. As fotos originais do álbum continuam como estão.</p>
+
+    <p style="margin-top:2em"><a href="/">Abrir o álbum</a></p>
+  </section>
+
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  let senha = "";
+  let fila = [];
+
+  /* ---------- utilidades ---------- */
+  let toastTimer;
+  function aviso(msg, erro) {
+    const t = $("toast");
+    t.textContent = msg;
+    t.classList.toggle("err", !!erro);
+    t.classList.add("on");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove("on"), erro ? 5000 : 3200);
+  }
+
+  async function api(metodo, url, corpo) {
+    const r = await fetch(url, {
+      method: metodo,
+      headers: { "content-type": "application/json", "x-admin-password": encodeURIComponent(senha) },
+      body: corpo ? JSON.stringify(corpo) : undefined,
+    });
+    let j = {};
+    try { j = await r.json(); } catch (_) {}
+    if (r.status === 401) { if (url !== "/api/login") sair(true); throw new Error("Senha incorreta"); }
+    if (!r.ok) throw new Error(j.erro || "Erro " + r.status);
+    return j;
+  }
+
+  /* ---------- entrar / sair ---------- */
+  function mostrar(logado) {
+    $("login").hidden = logado;
+    $("painel").hidden = !logado;
+    if (logado) carregarLista();
+  }
+
+  async function entrar() {
+    const v = $("senha").value;
+    if (!v) return;
+    $("entrar").disabled = true;
+    $("loginErro").hidden = true;
+    senha = v;
+    try {
+      await api("POST", "/api/login");
+      try { localStorage.setItem("album-senha", v); } catch (_) {}
+      $("senha").value = "";
+      mostrar(true);
+    } catch (e) {
+      senha = "";
+      $("loginErro").textContent = e.message === "Senha incorreta"
+        ? "Senha incorreta. Confira e tente de novo."
+        : "Não consegui entrar: " + e.message;
+      $("loginErro").hidden = false;
+    }
+    $("entrar").disabled = false;
+  }
+
+  function sair(expirou) {
+    senha = "";
+    try { localStorage.removeItem("album-senha"); } catch (_) {}
+    mostrar(false);
+    if (expirou) aviso("Entre de novo com a senha.", true);
+  }
+
+  $("entrar").addEventListener("click", entrar);
+  $("senha").addEventListener("keydown", (e) => { if (e.key === "Enter") entrar(); });
+  $("sair").addEventListener("click", () => sair(false));
+
+  /* ---------- fotos: reduz no próprio celular antes de enviar ---------- */
+  async function abrirImagem(file) {
+    if ("createImageBitmap" in window) {
+      try { return await createImageBitmap(file, { imageOrientation: "from-image" }); } catch (_) {}
+    }
+    return new Promise((ok, erro) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => ok(img);
+      img.onerror = () => erro(new Error("Não consegui abrir " + file.name));
+      img.src = url;
+    });
+  }
+
+  function reduzir(img, lado, qualidade) {
+    const w0 = img.width || img.naturalWidth, h0 = img.height || img.naturalHeight;
+    const k = Math.min(1, lado / Math.max(w0, h0));
+    const c = document.createElement("canvas");
+    c.width = Math.max(1, Math.round(w0 * k));
+    c.height = Math.max(1, Math.round(h0 * k));
+    const ctx = c.getContext("2d");
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, c.width, c.height);
+    ctx.drawImage(img, 0, 0, c.width, c.height);
+    return c.toDataURL("image/jpeg", qualidade);
+  }
+
+  $("arquivos").addEventListener("change", async (e) => {
+    const arquivos = [...e.target.files];
+    e.target.value = "";
+    for (const f of arquivos) {
+      try {
+        const img = await abrirImagem(f);
+        const w = img.width || img.naturalWidth, h = img.height || img.naturalHeight;
+        const item = {
+          id: Math.random().toString(36).slice(2),
+          nome: f.name,
+          foto: reduzir(img, 1600, 0.82),
+          peq: reduzir(img, 640, 0.7),
+          bg: reduzir(img, 140, 0.6),
+          ar: w / h,
+          comTexto: false, titulo: "", texto: "",
+        };
+        fila.push(item);
+        $("cards").appendChild(criarCard(item));
+        atualizarPublicar();
+      } catch (err) {
+        aviso(err.message, true);
+      }
+    }
+  });
+
+  /* ---------- um cartão por foto ---------- */
+  function criarCard(item) {
+    const el = document.createElement("div");
+    el.className = "card";
+    el.innerHTML = `
+      <div class="card__top">
+        <img class="card__img" alt="" />
+        <div class="card__info">
+          <p>Página nova</p>
+          <p class="muted"></p>
+        </div>
+        <button class="x" aria-label="Tirar esta foto">×</button>
+      </div>
+      <label class="switch"><input type="checkbox" /><i></i><span>Colocar um textinho</span></label>
+      <div class="texto" hidden>
+        <input type="text" class="titulo" maxlength="60" placeholder="Título curtinho (opcional)" />
+        <textarea class="corpo" maxlength="600" placeholder="Escreva aqui, ou peça uma sugestão"></textarea>
+        <div class="row">
+          <input type="text" class="dica" maxlength="300" placeholder="Dica pra sugestão (opcional)" />
+          <button class="btn btn--ghost btn--small sugerir">Sugerir</button>
+        </div>
+        <p class="aviso" hidden></p>
+      </div>`;
+    el.querySelector(".card__img").src = item.peq;
+    el.querySelector(".muted").textContent = item.nome;
+
+    const chk = el.querySelector("input[type=checkbox]");
+    const caixa = el.querySelector(".texto");
+    const titulo = el.querySelector(".titulo");
+    const corpo = el.querySelector(".corpo");
+    const dica = el.querySelector(".dica");
+    const btn = el.querySelector(".sugerir");
+    const av = el.querySelector(".aviso");
+
+    chk.addEventListener("change", () => {
+      item.comTexto = chk.checked;
+      caixa.hidden = !chk.checked;
+      if (chk.checked && !corpo.value) corpo.focus();
+    });
+    titulo.addEventListener("input", () => { item.titulo = titulo.value; });
+    corpo.addEventListener("input", () => { item.texto = corpo.value; });
+
+    btn.addEventListener("click", async () => {
+      btn.disabled = true; btn.textContent = "Pensando…"; av.hidden = true;
+      try {
+        const r = await api("POST", "/api/texto", { photo: item.peq, dica: dica.value });
+        titulo.value = item.titulo = r.titulo || "";
+        corpo.value = item.texto = r.texto || "";
+        if (r.aviso) { av.textContent = r.aviso; av.hidden = false; }
+        btn.textContent = "Outra sugestão";
+      } catch (err) {
+        av.textContent = err.message; av.hidden = false; btn.textContent = "Sugerir";
+      }
+      btn.disabled = false;
+    });
+
+    el.querySelector(".x").addEventListener("click", () => {
+      fila = fila.filter((i) => i.id !== item.id);
+      el.remove();
+      atualizarPublicar();
+    });
+    return el;
+  }
+
+  function atualizarPublicar() {
+    const n = fila.length;
+    $("publish").hidden = n === 0;
+    $("publicar").textContent = n === 1 ? "Publicar 1 página" : "Publicar " + n + " páginas";
+  }
+
+  /* ---------- publicar ---------- */
+  $("publicar").addEventListener("click", async () => {
+    const btn = $("publicar");
+    btn.disabled = true;
+    const total = fila.length;
+    let feitas = 0;
+    try {
+      for (const item of [...fila]) {
+        btn.textContent = `Enviando ${feitas + 1} de ${total}…`;
+        const usa = item.comTexto && item.texto.trim();
+        await api("POST", "/api/pages", {
+          photo: item.foto, bg: item.bg, ar: item.ar,
+          titulo: usa ? item.titulo : "", texto: usa ? item.texto : "",
+        });
+        fila = fila.filter((i) => i.id !== item.id);
+        feitas++;
+      }
+      $("cards").innerHTML = "";
+      aviso(feitas === 1 ? "Pronto! A página já está no álbum 💕" : "Pronto! " + feitas + " páginas no álbum 💕");
+    } catch (err) {
+      aviso("Parei na foto " + (feitas + 1) + ": " + err.message, true);
+      // redesenha só o que sobrou
+      $("cards").innerHTML = "";
+      fila.forEach((i) => $("cards").appendChild(criarCard(i)));
+    }
+    btn.disabled = false;
+    atualizarPublicar();
+    carregarLista();
+  });
+
+  /* ---------- páginas já adicionadas ---------- */
+  let paginas = [];
+  async function carregarLista() {
+    try {
+      const r = await fetch("/api/pages?fresh=1");
+      paginas = (await r.json()).pages || [];
+    } catch (_) { paginas = []; }
+    desenharLista();
+  }
+
+  function desenharLista() {
+    const box = $("lista");
+    box.innerHTML = "";
+    $("vazio").hidden = paginas.length > 0;
+    paginas.forEach((p, i) => {
+      const row = document.createElement("div");
+      row.className = "item";
+      row.innerHTML = `<img alt="" /><div class="item__txt"><b></b><span></span></div>
+        <button class="sobe" aria-label="Subir">↑</button>
+        <button class="desce" aria-label="Descer">↓</button>
+        <button class="apaga" aria-label="Apagar">🗑</button>`;
+      row.querySelector("img").src = p.photo;
+      row.querySelector("b").textContent = p.titulo || "Só a foto";
+      row.querySelector("span").textContent = p.texto || "sem texto";
+      const sobe = row.querySelector(".sobe"), desce = row.querySelector(".desce");
+      sobe.disabled = i === 0;
+      desce.disabled = i === paginas.length - 1;
+      sobe.addEventListener("click", () => mover(i, -1));
+      desce.addEventListener("click", () => mover(i, 1));
+      row.querySelector(".apaga").addEventListener("click", () => apagar(p));
+      box.appendChild(row);
+    });
+  }
+
+  async function mover(i, d) {
+    const j = i + d;
+    if (j < 0 || j >= paginas.length) return;
+    [paginas[i], paginas[j]] = [paginas[j], paginas[i]];
+    desenharLista();
+    try { await api("PUT", "/api/pages", { order: paginas.map((p) => p.id) }); }
+    catch (err) { aviso(err.message, true); carregarLista(); }
+  }
+
+  async function apagar(p) {
+    if (!confirm("Apagar esta página do álbum?")) return;
+    try {
+      await api("DELETE", "/api/pages?id=" + encodeURIComponent(p.id));
+      aviso("Página apagada.");
+      carregarLista();
+    } catch (err) { aviso(err.message, true); }
+  }
+
+  /* ---------- início ---------- */
+  (async () => {
+    let salva = "";
+    try { salva = localStorage.getItem("album-senha") || ""; } catch (_) {}
+    if (salva) {
+      senha = salva;
+      try { await api("POST", "/api/login"); mostrar(true); return; } catch (_) { senha = ""; }
+    }
+    mostrar(false);
+  })();
+})();
+</script>
+</body>
+</html>

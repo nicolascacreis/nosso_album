@@ -24,3 +24,15 @@ Na Vercel: Add New > Project > escolha o repositório > Deploy.
 - Data do namoro: topo do `script.js` (`START`).
 - Textos e ordem das páginas: `index.html` (cada `<section class="sheet">` é uma folha).
 - Música: `music/home.mp3`.
+
+## Adicionar fotos pelo celular (`/admin`)
+Abra `https://SEU-SITE.vercel.app/admin`, digite a senha, escolha as fotos e toque em **Publicar**.
+Cada foto vira uma página nova, antes da carta. Dá pra colocar (ou não) um textinho em cada uma.
+Lá embaixo também dá pra reordenar e apagar as páginas que você adicionou.
+
+Configuração única na Vercel:
+1. **Storage > Create > Blob** (escolha **Public**) e conecte ao projeto.
+2. **Settings > Environment Variables**, adicione `ADMIN_PASSWORD` (a senha do /admin).
+3. Opcional, para o botão "Sugerir" escrever com IA olhando a foto: `ANTHROPIC_API_KEY`.
+   Sem ela, o botão usa textinhos prontos.
+4. Faça um novo deploy (Deployments > Redeploy) para valer as variáveis.
