@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a0a17" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Nosso álbum 💿</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💿%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Figtree:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <audio id="song" src="music/home.mp3" loop preload="auto"></audio>
+
+  <!-- ornamento reutilizável -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="fl" viewBox="0 0 90 90">
+        <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <path d="M3 3 C44 5 78 22 86 64" />
+          <path d="M3 3 C5 44 22 78 64 86" />
+          <path d="M15 15 C34 17 50 28 55 47" />
+          <path d="M15 15 C17 34 28 50 47 55" />
+        </g>
+        <g fill="currentColor">
+          <circle cx="3" cy="3" r="2.4" />
+          <circle cx="86" cy="64" r="2" />
+          <circle cx="64" cy="86" r="2" />
+          <circle cx="55" cy="47" r="1.6" />
+          <circle cx="47" cy="55" r="1.6" />
+        </g>
+      </symbol>
+      <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#fff2cf" />
+        <stop offset=".5" stop-color="#e8c98f" />
+        <stop offset="1" stop-color="#b58a45" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="bokehs" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <header class="top" id="top">
+    <button class="pill" id="pill" aria-label="Tocar ou pausar a música">
+      <span class="pill__disc"></span>
+      <span class="pill__text"><b>Home (soft version)</b><i>Good Neighbours</i></span>
+      <span class="pill__btn">
+        <svg class="ico-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <svg class="ico-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>
+      </span>
+    </button>
+  </header>
+
+  <main class="stage">
+    <div class="book" id="book">
+
+      <!-- 1. CAPA -->
+      <section class="sheet">
+        <div class="face front page cover">
+          <svg class="cover__fl cover__fl--tl"><use href="#fl" /></svg>
+          <svg class="cover__fl cover__fl--tr"><use href="#fl" /></svg>
+          <svg class="cover__fl cover__fl--bl"><use href="#fl" /></svg>
+          <svg class="cover__fl cover__fl--br"><use href="#fl" /></svg>
+          <div class="cover__frame"></div>
+          <div class="cover__body">
+            <svg class="cover__heart" viewBox="0 0 100 92" aria-hidden="true">
+              <path d="M50 86 C14 58 6 38 12 24 C18 10 38 8 50 26 C62 8 82 10 88 24 C94 38 86 58 50 86Z" fill="none" stroke="url(#gold)" stroke-width="2.4" stroke-linejoin="round" />
+              <path d="M50 74 C24 54 19 40 23 30 C27 21 40 20 50 33 C60 20 73 21 77 30 C81 40 76 54 50 74Z" fill="url(#gold)" opacity=".92" />
+            </svg>
+            <h1 class="cover__title">Nosso<br>álbum</h1>
+            <p class="cover__hand">para a minha princesinha</p>
+            <p class="cover__date">04.07.2026</p>
+          </div>
+          <p class="cover__hint"><span>coloque o fone e deslize pra abrir</span></p>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page inside"><i class="shade"></i></div>
+      </section>
+
+      <!-- 2. NOSSA MÚSICA -->
+      <section class="sheet">
+        <div class="face front page dark deck">
+          <p class="hand gold">nossa música</p>
+
+          <div class="turntable">
+            <div class="turntable__glow"></div>
+            <div class="platter">
+              <div class="record">
+                <div class="record__label">
+                  <span class="record__text">Home</span>
+                  <span class="record__heart">♥</span>
+                  <span class="record__text record__text--small">soft version</span>
+                </div>
+              </div>
+              <div class="platter__sheen"></div>
+            </div>
+            <div class="tonearm">
+              <span class="tonearm__base"></span>
+              <span class="tonearm__rod"></span>
+              <span class="tonearm__head"></span>
+            </div>
+          </div>
+
+          <div class="now">
+            <div class="now__info">
+              <p class="now__song">Home <em>(soft version)</em></p>
+              <p class="now__artist">Good Neighbours</p>
+            </div>
+            <button class="play no-flip" id="playBtn" aria-label="Tocar">
+              <svg class="ico-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+              <svg class="ico-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>
+            </button>
+          </div>
+
+          <div class="bar no-flip" id="bar" role="slider" aria-label="Progresso da música" tabindex="0"><span class="bar__fill" id="barFill"></span></div>
+
+          <p class="deck__line">Casa, pra mim, é onde você está.</p>
+          <p class="deck__missing" id="deckNote" hidden>Falta colocar a música em music/home.mp3</p>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page dark"><i class="shade"></i></div>
+      </section>
+
+      <!-- 3. TEXTO -->
+      <section class="sheet">
+        <div class="face front page paper">
+          <svg class="fl fl--tl"><use href="#fl" /></svg>
+          <svg class="fl fl--br"><use href="#fl" /></svg>
+          <div class="note">
+            <p class="hand ruby">pra você, minha princesinha</p>
+            <p class="serif">Eu queria saber explicar direitinho o que você faz comigo.</p>
+            <p class="serif">Você chega, e o meu dia fica mais leve. Você sorri, e o resto do mundo perde a graça.</p>
+            <p class="serif">Eu só sei que, do seu lado, eu me sinto o mais sortudo do mundo.</p>
+          </div>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page paper"><i class="shade"></i></div>
+      </section>
+
+      <!-- 4. FOTO -->
+      <section class="sheet">
+        <div class="face front page photo" style="--bg:url(images/bg/01-jantar.jpg); --ar:.68">
+          <div class="mat tilt-l">
+            <span class="tape tape--l"></span><span class="tape tape--r"></span>
+            <img src="images/01-jantar.jpg" alt="Nós dois" draggable="false" />
+            <span class="mat__heart">♥</span>
+          </div>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page dark"><i class="shade"></i></div>
+      </section>
+
+      <!-- 5. VOCÊ É -->
+      <section class="sheet">
+        <div class="face front page dark typo">
+          <svg class="fl fl--tl fl--gold"><use href="#fl" /></svg>
+          <svg class="fl fl--br fl--gold"><use href="#fl" /></svg>
+          <div class="typo__body">
+            <p class="typo__l typo__l--1">Você é linda.</p>
+            <p class="typo__l typo__l--2">Você é doce.</p>
+            <p class="typo__l typo__l--3">Você é a minha paz.</p>
+            <p class="typo__l typo__l--4">Você é o meu lar.</p>
+            <p class="typo__hand">e eu vou te dizer isso todos os dias ♥</p>
+          </div>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page dark"><i class="shade"></i></div>
+      </section>
+
+      <!-- 6. FOTO -->
+      <section class="sheet">
+        <div class="face front page photo" style="--bg:url(images/bg/02-brasil.jpg); --ar:.5">
+          <div class="mat tilt-r">
+            <span class="tape tape--l"></span><span class="tape tape--r"></span>
+            <img src="images/02-brasil.jpg" alt="Nós dois" draggable="false" />
+            <span class="mat__heart">♥</span>
+          </div>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page dark"><i class="shade"></i></div>
+      </section>
+
+      <!-- 7. TEXTO: SORRISO -->
+      <section class="sheet">
+        <div class="face front page paper">
+          <svg class="fl fl--tl"><use href="#fl" /></svg>
+          <svg class="fl fl--br"><use href="#fl" /></svg>
+          <div class="note">
+            <p class="hand ruby">o seu sorriso</p>
+            <p class="serif">É a coisa mais bonita que eu já vi.</p>
+            <p class="serif">Ele ilumina qualquer lugar, acalma qualquer dia ruim e me faz esquecer de todo o resto.</p>
+            <p class="serif">Se eu pudesse escolher onde passar o tempo, era olhando ele.</p>
+          </div>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page paper"><i class="shade"></i></div>
+      </section>
+
+      <!-- 8. FOTO -->
+      <section class="sheet">
+        <div class="face front page photo" style="--bg:url(images/bg/03-maos.jpg); --ar:.5">
+          <div class="mat tilt-l">
+            <span class="tape tape--l"></span><span class="tape tape--r"></span>
+            <img src="images/03-maos.jpg" alt="Nós dois" draggable="false" />
+            <span class="mat__heart">♥</span>
+          </div>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page dark"><i class="shade"></i></div>
+      </section>
+
+      <!-- 9. CONTADOR -->
+      <section class="sheet">
+        <div class="face front page dark us">
+          <p class="hand gold">juntos desde 04/07/2026</p>
+          <p class="us__days"><span id="daysNum">0</span><small>dias</small></p>
+          <p class="us__months" id="monthsText"></p>
+
+          <div class="clock">
+            <div><b id="cH">00</b><span>horas</span></div>
+            <div><b id="cM">00</b><span>minutos</span></div>
+            <div><b id="cS">00</b><span>segundos</span></div>
+          </div>
+
+          <div class="next">
+            <div class="ring">
+              <svg viewBox="0 0 120 120">
+                <circle class="ring__bg" cx="60" cy="60" r="52" />
+                <circle class="ring__fg" id="ringFg" cx="60" cy="60" r="52" />
+              </svg>
+              <span class="ring__heart">♥</span>
+            </div>
+            <div class="next__text">
+              <p class="next__label" id="nextLabel">Contagem regressiva</p>
+              <p class="next__count" id="nextCount">--</p>
+              <p class="next__date" id="nextDate"></p>
+            </div>
+          </div>
+          <p class="us__year" id="yearText"></p>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page dark"><i class="shade"></i></div>
+      </section>
+
+      <!-- 10. FOTO -->
+      <section class="sheet">
+        <div class="face front page photo" style="--bg:url(images/bg/04-sorriso.jpg); --ar:.5">
+          <div class="mat tilt-r">
+            <span class="tape tape--l"></span><span class="tape tape--r"></span>
+            <img src="images/04-sorriso.jpg" alt="Ela" draggable="false" />
+            <span class="mat__heart">♥</span>
+          </div>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page dark"><i class="shade"></i></div>
+      </section>
+
+      <!-- 11. TEXTO: JEITO -->
+      <section class="sheet">
+        <div class="face front page paper">
+          <svg class="fl fl--tl"><use href="#fl" /></svg>
+          <svg class="fl fl--br"><use href="#fl" /></svg>
+          <div class="note">
+            <p class="hand ruby">o seu jeito</p>
+            <p class="serif">Além de linda, você é boa demais. Tem um jeito de falar que acalma, de abraçar que conforta e de olhar que me desmonta.</p>
+            <p class="serif">Com você eu aprendi que amor é simples: é rir à toa, é ficar em silêncio sem ficar sem graça, é sentir paz só de estar juntinho.</p>
+          </div>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page paper"><i class="shade"></i></div>
+      </section>
+
+      <!-- 12. FOTO -->
+      <section class="sheet">
+        <div class="face front page photo" style="--bg:url(images/bg/05-piscina.jpg); --ar:.68">
+          <div class="mat tilt-l">
+            <span class="tape tape--l"></span><span class="tape tape--r"></span>
+            <img src="images/05-piscina.jpg" alt="Nós dois" draggable="false" />
+            <span class="mat__heart">♥</span>
+          </div>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page dark"><i class="shade"></i></div>
+      </section>
+
+      <!-- 13. FOTO -->
+      <section class="sheet">
+        <div class="face front page photo" style="--bg:url(images/bg/06-piscina2.jpg); --ar:.68">
+          <div class="mat tilt-r">
+            <span class="tape tape--l"></span><span class="tape tape--r"></span>
+            <img src="images/06-piscina2.jpg" alt="Nós dois" draggable="false" />
+            <span class="mat__heart">♥</span>
+          </div>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page dark"><i class="shade"></i></div>
+      </section>
+
+      <!-- 14. CARTA -->
+      <section class="sheet">
+        <div class="face front page paper letter">
+          <svg class="fl fl--tl"><use href="#fl" /></svg>
+          <svg class="fl fl--br"><use href="#fl" /></svg>
+          <div class="note">
+            <p class="letter__to">Minha princesinha,</p>
+            <p class="serif">Se eu escrevesse por mil anos, ainda ia faltar palavra pra dizer o quanto você é especial pra mim.</p>
+            <p class="serif">Você é a mulher mais linda que eu conheço, por fora e por dentro. Cada foto aqui é um pedacinho do nosso tempo que eu quero guardar pra sempre. E o melhor: ainda temos muitas páginas em branco pela frente.</p>
+            <p class="serif">Eu te amo mais que tudo nesse mundo.</p>
+            <p class="letter__sign">seu amor ♥</p>
+          </div>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page paper"><i class="shade"></i></div>
+      </section>
+
+      <!-- 15. FINAL -->
+      <section class="sheet">
+        <div class="face front page dark end">
+          <svg class="fl fl--tl fl--gold"><use href="#fl" /></svg>
+          <svg class="fl fl--br fl--gold"><use href="#fl" /></svg>
+          <div class="end__body">
+            <p class="end__love">Eu te amo</p>
+            <p class="end__sub">mais que tudo nesse mundo</p>
+            <button class="btn btn--ruby no-flip" id="heartBtn">Mandar um beijinho</button>
+            <button class="btn btn--ghost no-flip" id="homeBtn">Voltar pra capa</button>
+          </div>
+          <i class="shade"></i>
+        </div>
+        <div class="face back page dark"><i class="shade"></i></div>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="nav" id="nav"><span class="nav__count" id="count">&nbsp;</span></div>
+
+  <div class="hearts" id="hearts" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
